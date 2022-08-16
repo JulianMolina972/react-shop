@@ -10,14 +10,18 @@ import { SendEmail } from '@pages/SendEmail'
 import { NewPassword } from '@pages/NewPassword'
 import { CreateAccount } from '@pages/CreateAccount'
 import { PasswordRecovery } from '@pages/PasswordRecovery'
-import { BrowserRouter, Routes ,Route } from 'react-router-dom'
+import { BrowserRouter, Routes ,Route } from 'react-router-dom' 
+import AppContext from '@context/AppContext'
+import useInitialState from '@hooks/useInitialState'
 import '@styles/global.css'
 
 const App = () => {
+  const initialState = useInitialState()
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/password-recovery" element={<PasswordRecovery />} />
@@ -28,9 +32,10 @@ const App = () => {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </AppContext.Provider>
   )
 }
 
