@@ -6,7 +6,10 @@ import '@styles/MyOrder.scss';
 
 export const MyOrder = () => {
 
-	const { state } = useContext(AppContext);
+	const { 
+    state, 
+    toggleOrdersFlechita 
+	}	= useContext(AppContext);
 
 	const sumTotal = () => {
 		const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
@@ -17,9 +20,13 @@ export const MyOrder = () => {
 
 	return (
 		<aside className="MyOrder">
-			<div className="title-container">
-				<img src={flechita} alt="arrow" />
-				<p className="title">My order</p>
+			<div className="title-container-my-order">
+				<img 
+					src={flechita} 
+					alt="arrow" 
+					onClick={() => toggleOrdersFlechita()}
+				/>
+				<p className="title-my-order">My order</p>
 			</div>
 			<div className="my-order-content">
 				{state.cart.map(product => (

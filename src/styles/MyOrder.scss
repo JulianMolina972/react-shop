@@ -13,16 +13,34 @@
 	border: 1px solid var(--very-light-gray);
 	animation: swipeLeft 0.26s ease;
 }
-.title-container {
-	display: flex;
+
+.my-order-content {
+	max-height: calc(100vh - 340px);
+	overflow-y: auto;
 }
-.title-container img {
+
+.my-order-content::-webkit-scrollbar {
+	display: none;
+}
+
+
+.title-container-my-order {
+	display: flex;
+	margin-bottom: 24px;
+	
+}
+.title-container-my-order img {
 	transform: rotate(180deg);
 	margin-right: 14px;
+	height: 23px;
+	cursor: pointer;
 }
-.title {
+.title-my-order {
+	
 	font-size: var(--lg);
 	font-weight: bold;
+	
+
 }
 .order {
 	display: grid;
